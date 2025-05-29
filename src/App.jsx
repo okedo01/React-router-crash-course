@@ -1,18 +1,22 @@
-import './App.css'
-import BookList from './Components/BookList'
-import Home from './Components/Home'
-import { Routes, Route } from 'react-router-dom'
-import NotFound from './Components/NotFound'
+import BookList from "./Components/BookList"
+import Books from "./Components/Books"
+import { Route, Routes, Link } from "react-router-dom"
+import Home from "./Components/Home"
 
 function App() {
 
   return (
     <>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/BookList" element={<BookList />} />
-      <Route path='*' element={<NotFound />} />
-    </Routes>
+    <nav>
+      <Link to="/">Home</Link>
+      <Link to="/BookList">Books</Link>
+    </nav>
+      <h1>Hello</h1>
+      <Routes>
+        <Route path="/" element={<Home />} /> 
+        
+        <Route path="/BookList" element={<BookList />} />
+      </Routes>
     </>
   )
 }
