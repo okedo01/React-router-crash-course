@@ -3,6 +3,7 @@ import Books from "./Pages/Books"
 import { Route, Routes, Link } from "react-router-dom"
 import Home from "./Pages/Home"
 import NewBooks from "./Pages/NewBooks"
+import NotFound from "./Pages/NotFound"
 
 function App() {
 
@@ -12,15 +13,14 @@ function App() {
       <Link to="/">Home</Link>
       <Link to="/books">Books</Link>
     </nav>
-      <h1>Hello</h1>
       <Routes>
         <Route path="/" element={<Home />} /> 
-        
-        <Route path="/books/" element={<BookList />} />
-
-        <Route path="/books/:id" element={<Books />} />
-
-        <Route path="/books/new" element={<NewBooks />} />
+        <Route path="/books">
+          <Route index element={<BookList />} />
+          <Route path=":id" element={<Books />} />
+          <Route path="new" element={<NewBooks />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   )
